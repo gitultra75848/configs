@@ -1,0 +1,136 @@
+# ~/.config/starship.toml
+
+palette = "catppuccin_macchiato"
+
+right_format = """$cmd_duration$time$os"""
+
+add_newline = true
+format = """
+ [](bold italic red) \ 
+ [](bg:surface0 fg:rosewater)$directory\
+ [](bold italic rosewater)$git_branch$python$golang 
+ [\n ](rosewater)$character
+"""
+#
+#
+[time]
+disabled = false
+time_format = "%I:%M" # Hour:Minute Format
+style = "bold bg:#00FFFFFF fg:rosewater"
+format = '[ $time ]($style)'
+#
+#
+[directory.substitutions]
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Music" = "  "
+"Pictures" = "  "
+"Desktop" = "  "
+"~" = " "
+"nvim" = "  "
+".config" = " 󰴳 "
+#
+#
+[git_branch]
+symbol = '  '
+truncation_length = 8
+truncation_symbol = '..'
+format = 'on(text)  ⌠[$symbol$branch(:$remote_branch) ]($style)⌡  '
+style = "bold rosewater"
+
+[golang]
+symbol = ' 󰟓  '
+format = ' [$symbol($version )]($style)'
+
+
+#
+# # Replace the "❯"
+[character]
+success_symbol = "[↪ ](text)"
+error_symbol = "[↪ ](red)"
+#
+# configure directory
+[directory]
+read_only = "  "
+format = "[ ](surface2)[ $path]($style)[$lock_symbol]($lock_style )[ ](surface2) "
+truncation_length = 10
+truncate_to_repo = true                                                                 # truncates directory to root folder if in github repo
+style = "italic fg:rosewater bg:surface2"
+#
+[os]
+format = " ($style)"
+style = "bold rosewater italic"
+disabled = false
+#
+#
+#
+#
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+format = '󰔛 [$duration]($style)    '
+disabled = false
+style = "bold rosewater"
+#
+#
+[python]
+symbol = "  "
+#pyenv_version_name = true
+format = ' [${symbol}(${version}) ⥋ (\($virtualenv\))]($style)'
+style = "bold rosewater"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${major}.${minor}"
+#
+#
+# [nodejs] 
+# format = "via [ $version](bold italic green) "
+# detect_files = ["package.json", ".node-version"]
+# detect_folders = ["node_modules"]
+#
+#
+[aws]
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+symbol = ' 󰅟 '
+style = "rosewater"
+#
+#
+# [battery]
+# full_symbol = "🔋"
+# charging_symbol = "🔌"
+# discharging_symbol = "⚡"
+#
+#
+[[battery.display]]
+threshold = 30
+style = "bold red"
+#
+#
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
